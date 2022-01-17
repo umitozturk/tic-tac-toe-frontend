@@ -1,0 +1,20 @@
+<div class="container">
+  <div>
+    <PaperToolbar class="mdc-top-app-bar--short" as |toolbar|>
+      <toolbar.tools>
+        <h2><b>XOX TOE</b></h2>
+        <PaperButton>
+          Go Back
+        </PaperButton>
+        <span class="flex"></span>
+        <PaperButton style='font-size:11px;' @raised={{true}}>
+          {{paper-icon "code" size=16}}
+          Github Repository
+        </PaperButton>
+      </toolbar.tools>
+    </PaperToolbar>
+  </div>
+  
+  {{yield}}
+
+</div>
