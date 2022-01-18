@@ -6,7 +6,11 @@
     </PaperButton>
   </div>
   <div class="flexboxItem-center m-auto">
-    {Players List Component}
+    <h3>Players List</h3>
+    {{!-- template-lint-disable no-implicit-this --}}
+    {{#each model as |player|}}
+      <p>{{player.name}}</p>
+    {{/each}}
   </div>
   <div class="flexboxItem-right">
     <PaperButton @onClick={{action "newPlayerPage"}}>
