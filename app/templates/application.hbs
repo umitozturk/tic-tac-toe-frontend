@@ -1,1 +1,30 @@
-{{outlet}}
+<div>
+  <PaperToolbar class="mdc-top-app-bar--short" as |toolbar|>
+    <toolbar.tools>
+      <h2><b><LinkTo @route='/'>tic-tac-toe</LinkTo></b></h2>
+      <PaperButton style="margin-left:50px;">
+          Start Game
+      </PaperButton>
+      <PaperButton>
+        <LinkTo @route='player'>
+          Players
+        </LinkTo>
+      </PaperButton>
+
+      <PaperButton>
+        <LinkTo @route='rank'>
+          Rankings
+        </LinkTo>
+      </PaperButton>
+      <span class="flex"></span>
+      <PaperButton style='font-size:10px;' @raised={{true}}>
+        {{paper-icon "code" size=16}}
+        <a href="https://github.com/umitozturk/tic-tac-toe-frontend" target="_blank">Github Repository</a>
+      </PaperButton>
+    </toolbar.tools>
+  </PaperToolbar>
+</div>
+
+<div class="layout-padding" style="margin-top:20px;">
+  {{outlet}}
+</div>

@@ -1,0 +1,16 @@
+{{!-- template-lint-disable no-bare-strings --}}
+<div class="flexboxContainer">
+  <div class="flexboxItem-left">
+    <PaperButton @onClick={{action "homePage"}} @class="indexButton">
+      {{paper-icon "keyboard_return"}} Home Page
+    </PaperButton>
+  </div>
+  <div class="flexboxItem-center m-auto">
+    {Players List Component}
+  </div>
+  <div class="flexboxItem-right">
+    <PaperButton @onClick={{action "newPlayerPage"}}>
+      {{paper-icon "add"}} New Player
+    </PaperButton>
+  </div>
+</div>
