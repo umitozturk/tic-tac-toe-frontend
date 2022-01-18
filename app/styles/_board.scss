@@ -1,0 +1,24 @@
+.board {
+  display: block;
+  width: 326px;
+  height: 350px;
+  margin: 70px auto;
+  // background-color: #2980b9;
+}
+
+.cell {
+  display: inline-flex;
+  margin: 2px 0;
+  border: 3px solid black;
+  width: 100px;
+  height: 100px;
+  box-shadow: 2px 2px;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+
+.row0, .row1, .row2 {
+display: flex;
+justify-content: space-between;
+}
