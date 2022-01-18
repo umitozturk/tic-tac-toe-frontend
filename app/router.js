@@ -11,4 +11,5 @@ Router.map(function() {
   this.route('player', function() {
     this.route('new');
   });
+  this.route('rank');
 });
