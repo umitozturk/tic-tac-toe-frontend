@@ -3,7 +3,9 @@
     <toolbar.tools>
       <h2><b><LinkTo @route='/'>tic-tac-toe</LinkTo></b></h2>
       <PaperButton style="margin-left:50px;">
-          Start Game
+          <LinkTo @route='board'>
+            Start Game
+          </LinkTo>
       </PaperButton>
       <PaperButton>
         <LinkTo @route='player'>
