@@ -2,7 +2,8 @@
   display: block;
   width: 326px;
   height: 350px;
-  margin: 70px auto;
+  margin: 40px auto;
+  user-select: none;
   // background-color: #2980b9;
 }
 
@@ -16,6 +17,11 @@
   justify-content: center;
   align-items: center;
   font-size: 100px;
+}
+
+.cell a {
+  text-decoration: none;
+  color: #333;
 }
 
 .row0, .row1, .row2 {
