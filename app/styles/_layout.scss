@@ -3,7 +3,7 @@
   display: flex;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-  min-width: 80rem;
+  min-width: 110rem;
   // background: #02a30a;
   max-width: 130rem;
   margin:0 auto;
@@ -90,4 +90,14 @@ body {
   background-color: #2980b9;
   padding: 0.5rem 1rem;
   margin: 2rem 0;
+}
+
+.indexButton a {
+  text-decoration: none;
+  color: #0b0b0b;
+}
+
+.indexButton a:visited {
+  text-decoration: none;
+  color: #0b0b0b;
 }
