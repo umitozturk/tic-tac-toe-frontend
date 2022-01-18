@@ -20,7 +20,6 @@ export default class PlayerNewComponent extends Component {
     } catch (e) {
       this.store.unloadRecord(player);
       this.error = e.errors;
-      console.log(this.error);
     }
   }
 

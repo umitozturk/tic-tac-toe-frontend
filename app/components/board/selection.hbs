@@ -1,0 +1,7 @@
+<h3>Select two Players to Play Tic Tac Toe</h3>
+<PaperSelect @placeholder="Player" @selected={{xPlayer}} @options={{players}} @searchField="name" @searchPlaceholder="Search for a player.." @searchEnabled={{true}} @onChange={{action (mut xPlayer)}} as |player|>
+  {{player.name}}
+</PaperSelect>
+{{#each players as |player|}}
+  <p>{{player.name}}</p>
+{{/each}}
