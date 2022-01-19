@@ -24,6 +24,8 @@ export default class BoardTicTacToeComponent extends Component {
   @tracked player = 1;
   @tracked gameOver = false;
   @tracked result = '';
+  @tracked showToast = false;
+  @tracked showEndInfo = false;
 
   // Pull in cells from DOM
   @tracked cellElements = window.document.querySelectorAll(".cell");
@@ -105,11 +107,16 @@ export default class BoardTicTacToeComponent extends Component {
   endGame(winner) {
     // Trigger game over
     this.gameOver = true;
+    this.showEndInfo = true;
     // Check if game ended in a tie
     if(winner == 0) {
       this.resultElement = "It's a tie!"
     } else {
-      this.resultElement = `Player ${winner} wins!`
+      if(winner == 1) {
+        this.resultElement = `Player ${this.xPlayer.name} wins!`
+      } else {
+        this.resultElement = `Player ${this.oPlayer.name} wins!`
+      }
     }
   }
 
@@ -124,6 +131,7 @@ export default class BoardTicTacToeComponent extends Component {
       ]
     this.player = 1;
     this.gameOver = false;
+    this.showEndInfo = false;
 
     this.cellElements.forEach(cell => {
       cell.classList.remove("cross", "circle");
@@ -135,5 +143,10 @@ export default class BoardTicTacToeComponent extends Component {
   @action
   boardSelectionPage() {
     this.router.transitionTo('/board');
+  }
+
+  @action
+  closeEndInfo() {
+    this.showEndInfo = false;
   }
 }
