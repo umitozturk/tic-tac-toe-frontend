@@ -3,8 +3,11 @@ import { tracked } from '@glimmer/tracking';
 import { arg } from 'ember-arg-types';
 import { action } from '@ember/object';
 import { boardPlace } from 'tic-tac-toe-frontend/utils/board-place';
+import { inject as service } from '@ember/service';
 
 export default class BoardTicTacToeComponent extends Component {
+  @service router;
+
   @arg
   xPlayer;
 
@@ -24,9 +27,7 @@ export default class BoardTicTacToeComponent extends Component {
 
   // Pull in cells from DOM
   @tracked cellElements = window.document.querySelectorAll(".cell");
-  // Pull in the result text from DOM
-  @tracked resultElement = window.document.getElementById("result");
-
+  @tracked resultElement = '';
 
   @action
   cellClick(rowIndex, colIndex) {
@@ -34,8 +35,6 @@ export default class BoardTicTacToeComponent extends Component {
     let placeIndex = boardPlace(index, this.cellElements);
 
     this.placeMarker(placeIndex);
-
-    console.log(this.boardData);
   }
 
   // Create function for placing markers
@@ -58,30 +57,10 @@ export default class BoardTicTacToeComponent extends Component {
       })
       // change player
       this.player *= -1;
-      // Update the screen with markers
-      // drawMarkers();
       // Check if anyone has won
       this.checkResult();
     }
   }
-
-  // // Create function for drawing player markers
-  // // function drawMarkers() {
-  // //   // Iterate over rows
-  // //   for(let row = 0; row < 3; row++) {
-  // //     // Iterate over columns
-  // //     for(let col = 0; col <3; col++) {
-  // //       // Check if it is player 1's marker
-  // //       if(boardData[row][col] == 1) {
-  // //         // Update cell class to add a cross
-  // //         cellElements[(row * 3) + col].classList.add("cross");
-  // //       } else if(boardData[row][col] == -1) {
-  // //         // Update cell class to add a circle
-  // //         cellElements[(row * 3) + col].classList.add("circle");
-  // //       }
-  // //     }
-  // //   }
-  // // }
 
   // Create function for checking the result of the game
   checkResult() {
@@ -132,5 +111,29 @@ export default class BoardTicTacToeComponent extends Component {
     } else {
       this.resultElement = `Player ${winner} wins!`
     }
+  }
+
+  // Reset game
+  @action
+  resetGame() {
+    // Reset game board
+    this.boardData = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0]
+      ]
+    this.player = 1;
+    this.gameOver = false;
+
+    this.cellElements.forEach(cell => {
+      cell.classList.remove("cross", "circle");
+    });
+      // Reset outcome text
+    this.resultElement = '';
+  }
+
+  @action
+  boardSelectionPage() {
+    this.router.transitionTo('/board');
   }
 }

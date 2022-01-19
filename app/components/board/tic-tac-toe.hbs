@@ -1,9 +1,9 @@
 {{!-- template-lint-disable no-html-comments --}}
 <!-- players -->
 <div class="flexboxContainer">
-  <div class="flexboxItem-left"><h3>X Player: {{xPlayer.name}}</h3></div>
-  <div class="flexboxItem-center m-auto"><h4>PLAYER X WINS! {{player}}</h4></div>
-  <div class="flexboxItem-right"><h3>O Player: {{oPlayer.name}}</h3></div>
+  <div class="flexboxItem-left"><h3>X - {{this.xPlayer.name}} </h3></div>
+  <div class="flexboxItem-center m-auto"><h4>{{this.resultElement}}</h4></div>
+  <div class="flexboxItem-right"><h3>O - {{this.oPlayer.name}} </h3></div>
 </div>
 <!-- board and form -->
 <div class="flexboxContainer">
@@ -15,6 +15,7 @@
         <div class="row{{rowIndex}}">
           {{#each row as |cell colIndex|}}
             <div class="cell c{{rowIndex}}{{colIndex}}" {{action this.cellClick rowIndex colIndex}}>
+              {{!-- Update the screen with markers --}}
               {{#if (eq cell 1)}}
                 X
               {{else if (eq cell -1)}}
@@ -28,4 +29,13 @@
 
   </div>
   <div class="flexboxItem-right"></div>
+</div>
+<!-- buttons -->
+<div class="flexboxContainer">
+  <div class="flexboxItem-left m-auto">
+    <PaperButton @onClick={{action "boardSelectionPage"}}>Change Players</PaperButton>
+  </div>
+  <div class="flexboxItem-right m-auto">
+    <PaperButton @onClick={{action "resetGame"}}>New Game</PaperButton>
+  </div>
 </div>
