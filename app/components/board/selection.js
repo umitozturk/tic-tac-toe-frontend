@@ -13,8 +13,8 @@ export default class BoardSelectionComponent extends Component {
   players = this.store.findAll('player');
 
   @action
-  xPlayerUpdate(selected) {
-    this.xPlayerID = selected.target.value;
+  xPlayerUpdate(event) {
+    this.xPlayerID = event.target.value;
 
     if(this.oPlayerID == this.xPlayerID) {
       this._warnIdenticalSelection();
@@ -22,8 +22,8 @@ export default class BoardSelectionComponent extends Component {
   }
 
   @action
-  oPlayerUpdate(selected) {
-    this.oPlayerID = selected.target.value;
+  oPlayerUpdate(event) {
+    this.oPlayerID = event.target.value;
     
     if(this.oPlayerID == this.xPlayerID) {
       this._warnIdenticalSelection();

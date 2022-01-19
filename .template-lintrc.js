@@ -46,7 +46,7 @@ module.exports = {
     'require-input-label': true,
 
     // MISC
-    'no-bare-strings': true,
+    'no-bare-strings': false,
     'no-inline-styles': false,
     'no-positional-data-test-selectors': true,
   },
