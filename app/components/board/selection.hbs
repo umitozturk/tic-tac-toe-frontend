@@ -1,20 +1,20 @@
 <h3>Select two Players to Play Tic Tac Toe</h3>
 
-<select onchange={{action "xPlayerUpdate"}}>
+<select {{on "change" this.xPlayerUpdate}}>
   <option value="" selected="selected" hidden="hidden">Choose Player X</option>
-  {{#each players as |player|}}
+  {{#each this.players as |player|}}
     <option value="{{player.id}}">{{player.name}}</option>
   {{/each}}
 </select>
 
 {{!-- I tried unless for selectbox options for preventing identical selection but it didn't work --}}
 
-<select onchange={{action "oPlayerUpdate"}}>
+<select {{on "change" this.oPlayerUpdate}}>
   <option value="" selected="selected" hidden="hidden">Choose Player O</option>
-  {{#each players as |player|}}
+  {{#each this.players as |player|}}
     <option value="{{player.id}}">{{player.name}}</option>
   {{/each}}
 </select>
 
 
-<LinkTo @route="board.play" @query={{hash xPlayer=this.xPlayer oPlayer=this.oPlayer}}>Proceed to Tic Tac Toe</LinkTo>
+<LinkTo @route="board.play" @query={{hash xPlayerID=this.xPlayerID oPlayerID=this.oPlayerID}}>Proceed to Tic Tac Toe</LinkTo>
