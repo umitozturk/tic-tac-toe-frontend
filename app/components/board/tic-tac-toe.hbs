@@ -1,10 +1,9 @@
-tic-tac-toe {{oPlayer.name}} vs {{xPlayer.name}}
 {{!-- template-lint-disable no-html-comments --}}
 <!-- players -->
 <div class="flexboxContainer">
-  <div class="flexboxItem-left"><h3>X Player: 5</h3></div>
-  <div class="flexboxItem-center m-auto"><h4>PLAYER X WINS!</h4></div>
-  <div class="flexboxItem-right"><h3>O Player: 4</h3></div>
+  <div class="flexboxItem-left"><h3>X Player: {{xPlayer.name}}</h3></div>
+  <div class="flexboxItem-center m-auto"><h4>PLAYER X WINS! {{player}}</h4></div>
+  <div class="flexboxItem-right"><h3>O Player: {{oPlayer.name}}</h3></div>
 </div>
 <!-- board and form -->
 <div class="flexboxContainer">

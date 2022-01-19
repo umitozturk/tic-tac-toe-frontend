@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { arg } from 'ember-arg-types';
 import { action } from '@ember/object';
-import { boardPlace } from 'tic-tac-toe-frontend/helpers/board-place';
+import { boardPlace } from 'tic-tac-toe-frontend/utils/board-place';
 
 export default class BoardTicTacToeComponent extends Component {
   @arg
@@ -46,6 +46,16 @@ export default class BoardTicTacToeComponent extends Component {
     // Check if the current cell is empty
     if(this.boardData[row][col] == 0 && this.gameOver == false) {
       this.boardData[row][col] = this.player;
+      // eslint-disable-next-line no-self-assign
+      this.boardData = this.boardData.map((rowMap, rowI)=> {
+        return rowMap.map((cell, colI)=>{
+            if(rowI === row && colI === col){
+                return this.player;
+            } else {
+                return cell;
+            }
+        })
+      })
       // change player
       this.player *= -1;
       // Update the screen with markers
