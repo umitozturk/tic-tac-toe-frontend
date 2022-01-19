@@ -1,4 +1,4 @@
-tic-tac-toe {{oPlayer}} vs {{xPlayer}}
+tic-tac-toe {{oPlayer.name}} vs {{xPlayer.name}}
 {{!-- template-lint-disable no-html-comments --}}
 <!-- players -->
 <div class="flexboxContainer">
@@ -10,23 +10,23 @@ tic-tac-toe {{oPlayer}} vs {{xPlayer}}
 <div class="flexboxContainer">
   <div class="flexboxItem-left"></div>
   <div class="flexboxItem m-auto">
+    
     <section class="board">
-      <div class="row0">
-          <div class="cell c00">X</div>
-          <div class="cell c01">O</div>
-          <div class="cell c02"></div>
-      </div>
-      <div class="row1">
-          <div class="cell c10">O</div>
-          <div class="cell c11">X</div>
-          <div class="cell c12">O</div>
-      </div>
-      <div class="row2">
-          <div class="cell c20">X</div>
-          <div class="cell c21"></div>
-          <div class="cell c22"><a href="#">X</a></div>
-      </div>
+      {{#each this.boardData as |row rowIndex|}}
+        <div class="row{{rowIndex}}">
+          {{#each row as |cell colIndex|}}
+            <div class="cell c{{rowIndex}}{{colIndex}}" {{action this.cellClick rowIndex colIndex}}>
+              {{#if (eq cell 1)}}
+                X
+              {{else if (eq cell -1)}}
+                O
+              {{else}}{{/if}}
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
     </section>
+
   </div>
   <div class="flexboxItem-right"></div>
 </div>

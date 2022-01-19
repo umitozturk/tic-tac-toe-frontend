@@ -1224,7 +1224,7 @@
     walk-sync "^1.1.3"
     wrap-legacy-hbs-plugin-if-needed "^1.0.1"
 
-"@embroider/macros@0.33.0":
+"@embroider/macros@0.33.0", "@embroider/macros@^0.33.0":
   version "0.33.0"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-0.33.0.tgz#d5826ea7565bb69b57ba81ed528315fe77acbf9d"
   integrity sha512-nl/1zRn+Wd3MO8Bb+YPqHmFl/2vwQLTsEB6Zt+K9bWXsM/kA+dPCeeCReLN6PbkMP16xxqtNSIrQ8Y49hnWjpg==
@@ -4797,6 +4797,19 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
+ember-arg-types@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ember-arg-types/-/ember-arg-types-0.4.0.tgz#b5a72837c416292d0891dcb30ad0a4b927f3e3b3"
+  integrity sha512-8kmzZHjjcX9fFkqVRWq3njoRqV2+pUk0BSPQ8i1xkx5K5LnmUMDkAu62wooAmQHDq2vDf5+JIhOtDkMafX27hA==
+  dependencies:
+    "@embroider/macros" "^0.33.0"
+    ember-auto-import "^1.10.1"
+    ember-cli-babel "^7.23.1"
+    ember-cli-htmlbars "^5.3.2"
+    ember-cli-typescript "^4.0.0"
+    ember-get-config "^0.2.4 || ^0.3.0"
+    prop-types "^15.7.2"
+
 ember-assign-polyfill@^2.6.0:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/ember-assign-polyfill/-/ember-assign-polyfill-2.7.2.tgz#58f6f60235126cb23df248c846008fa9a3245fc1"
@@ -4805,7 +4818,7 @@ ember-assign-polyfill@^2.6.0:
     ember-cli-babel "^7.20.5"
     ember-cli-version-checker "^2.0.0"
 
-ember-auto-import@^1.5.3:
+ember-auto-import@^1.10.1, ember-auto-import@^1.5.3:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.12.0.tgz#52246b04891090e2608244e65c4c6af7710df12b"
   integrity sha512-fzMGnyHGfUNFHchpLbJ98Vs/c5H2wZBMR9r/XwW+WOWPisZDGLUPPyhJQsSREPoUQ+o8GvyLaD/rkrKqW8bmgw==
@@ -4978,7 +4991,7 @@ ember-cli-htmlbars@^4.0.8, ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.2:
     strip-bom "^4.0.0"
     walk-sync "^2.0.2"
 
-ember-cli-htmlbars@^5.1.2, ember-cli-htmlbars@^5.6.2:
+ember-cli-htmlbars@^5.1.2, ember-cli-htmlbars@^5.3.2, ember-cli-htmlbars@^5.6.2:
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-5.7.2.tgz#e0cd2fb3c20d85fe4c3e228e6f0590ee1c645ba8"
   integrity sha512-Uj6R+3TtBV5RZoJY14oZn/sNPnc+UgmC8nb5rI4P3fR/gYoyTFIZSXiIM7zl++IpMoIrocxOrgt+mhonKphgGg==
@@ -5151,7 +5164,7 @@ ember-cli-typescript@^3.1.3:
     stagehand "^1.0.0"
     walk-sync "^2.0.0"
 
-ember-cli-typescript@^4.1.0:
+ember-cli-typescript@^4.0.0, ember-cli-typescript@^4.1.0:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-4.2.1.tgz#54d08fc90318cc986f3ea562f93ce58a6cc4c24d"
   integrity sha512-0iKTZ+/wH6UB/VTWKvGuXlmwiE8HSIGcxHamwNhEC5x1mN3z8RfvsFZdQWYUzIWFN2Tek0gmepGRPTwWdBYl/A==
@@ -5416,6 +5429,14 @@ ember-get-config@^0.2.4:
     broccoli-file-creator "^1.1.1"
     ember-cli-babel "^6.3.0"
 
+"ember-get-config@^0.2.4 || ^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-0.3.0.tgz#a73a1a87b48d9dde4c66a0e52ed5260b8a48cfbd"
+  integrity sha512-0e2pKzwW5lBZ4oJnvu9qHOht4sP1MWz/m3hyz8kpSoMdrlZVf62LDKZ6qfKgy8drcv5YhCMYE6QV7MhnqlrzEQ==
+  dependencies:
+    broccoli-file-creator "^1.1.1"
+    ember-cli-babel "^7.0.0"
+
 ember-in-element-polyfill@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/ember-in-element-polyfill/-/ember-in-element-polyfill-0.2.2.tgz#d1e7c9cdea7903b668bc4622c106add8d9558df7"
@@ -5521,6 +5542,14 @@ ember-power-select@^3.0.6:
     ember-concurrency "^1.0.0"
     ember-text-measurer "^0.5.0"
     ember-truth-helpers "^2.1.0"
+
+ember-prop-types@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/ember-prop-types/-/ember-prop-types-9.0.2.tgz#842641b3cd398dbbdb20fbe817b8e0f810e0b641"
+  integrity sha512-xrR2PP9xCXYbFNsKsryRZyncdUfs9izoGeY7SeMaEDQ7BSzkI99SYpSP5mGWICLfRquV9+If4PQIWXW2qwXppg==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-get-config "^0.2.4"
 
 ember-qunit@^4.6.0:
   version "4.6.0"
@@ -8310,7 +8339,7 @@ log-symbols@^4.1.0:
     chalk "^4.1.0"
     is-unicode-supported "^0.1.0"
 
-loose-envify@^1.0.0:
+loose-envify@^1.0.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -9543,6 +9572,15 @@ promise.hash.helper@^1.0.6:
   resolved "https://registry.yarnpkg.com/promise.hash.helper/-/promise.hash.helper-1.0.8.tgz#8c5fa0570f6f96821f52364fd72292b2c5a114f7"
   integrity sha512-KYcnXctWUWyVD3W3Ye0ZDuA1N8Szrh85cVCxpG6xYrOk/0CttRtYCmU30nWsUch0NuExQQ63QXvzRE6FLimZmg==
 
+prop-types@^15.7.2:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
 propagating-hammerjs@^1.4.7:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/propagating-hammerjs/-/propagating-hammerjs-1.5.0.tgz#223d58465489b64879fb0cef2c99ba92b294c239"
@@ -9726,6 +9764,11 @@ raw-body@~1.1.0:
   dependencies:
     bytes "1"
     string_decoder "0.10"
+
+react-is@^16.13.1:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
+  integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 read-pkg@^3.0.0:
   version "3.0.0"
