@@ -6,31 +6,29 @@ import { tracked } from '@glimmer/tracking';
 export default class BoardSelectionComponent extends Component {
   @service store;
 
-  @tracked xPlayer = '';
-  @tracked oPlayer = '';
+  @tracked xPlayerID = '';
+  @tracked oPlayerID = '';
 
   // TODO: Find a better way to collect player data
   players = this.store.findAll('player');
 
   @action
   xPlayerUpdate(selected) {
-    this.xPlayer = selected.target.value;
+    this.xPlayerID = selected.target.value;
 
-    if(this.oPlayer == this.xPlayer) {
+    if(this.oPlayerID == this.xPlayerID) {
       this._warnIdenticalSelection();
     }
   }
 
   @action
   oPlayerUpdate(selected) {
-    this.oPlayer = selected.target.value;
+    this.oPlayerID = selected.target.value;
     
-    if(this.oPlayer == this.xPlayer) {
+    if(this.oPlayerID == this.xPlayerID) {
       this._warnIdenticalSelection();
     }
   }
-
-
 
   _warnIdenticalSelection() {
     alert('Players must be different');
