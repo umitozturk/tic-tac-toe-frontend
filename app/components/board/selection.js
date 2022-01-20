@@ -9,7 +9,9 @@ export default class BoardSelectionComponent extends Component {
   @tracked xPlayerID = '';
   @tracked oPlayerID = '';
 
-  // TODO: Find a better way to collect player data
+  @tracked showInfo = false;
+  @tracked buttonDisabled = true;
+
   players = this.store.findAll('player');
 
   @action
@@ -17,7 +19,10 @@ export default class BoardSelectionComponent extends Component {
     this.xPlayerID = event.target.value;
 
     if(this.oPlayerID == this.xPlayerID) {
-      this._warnIdenticalSelection();
+      this.showInfo = true;
+      this.buttonDisabled = true;
+    } else if(this.oPlayerID != '' && this.xPlayerID != '') {
+      this.buttonDisabled = false;
     }
   }
 
@@ -26,11 +31,15 @@ export default class BoardSelectionComponent extends Component {
     this.oPlayerID = event.target.value;
     
     if(this.oPlayerID == this.xPlayerID) {
-      this._warnIdenticalSelection();
+      this.showInfo = true;
+      this.buttonDisabled = true;
+    } else if(this.oPlayerID != '' && this.xPlayerID != '') {
+      this.buttonDisabled = false;
     }
   }
 
-  _warnIdenticalSelection() {
-    alert('Players must be different');
+  @action
+  closeInfo() {
+    this.showInfo = false;
   }
 }

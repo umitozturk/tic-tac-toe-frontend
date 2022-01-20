@@ -1,20 +1,41 @@
-<h3>Select two Players to Play Tic Tac Toe</h3>
+<div class="flexboxContainer">
+  <div class="flexboxItem-center m-auto">
+    <h3>Select two players</h3>
+  </div>
+</div>
 
-<select {{on "change" this.xPlayerUpdate}}>
-  <option value="" selected="selected" hidden="hidden">Choose Player X</option>
-  {{#each this.players as |player|}}
-    <option value="{{player.id}}">{{player.name}}</option>
-  {{/each}}
-</select>
+<div class="flexboxContainer">
+  <div class="flexboxItem-center m-auto">
+    <select {{on "change" this.xPlayerUpdate}}>
+      <option value="" selected="selected" hidden="hidden">Choose Player X</option>
+      {{#each this.players as |player|}}
+        <option value="{{player.id}}">{{player.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  {{!-- TODO: I tried unless for selectbox options for preventing identical selection via ember-paper but it didn't work --}}
+  <div class="flexboxItem-center m-auto">
+    <select {{on "change" this.oPlayerUpdate}}>
+      <option value="" selected="selected" hidden="hidden">Choose Player O</option>
+      {{#each this.players as |player|}}
+        <option value="{{player.id}}">{{player.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+</div>
+<div class="flexboxContainer">
+  <div class="flexboxItem-center m-auto">
+      <LinkTo @route="board.play" @query={{hash xPlayerID=this.xPlayerID oPlayerID=this.oPlayerID}} style="color:rgb(23, 23, 23)">
+        <PaperButton @disabled={{this.buttonDisabled}} @accent={{false}}>
+          {{paper-icon "sports_esports"}} Start Tic Tac Toe {{paper-icon "sports_esports"}}
+        </PaperButton>
+      </LinkTo>
+  </div>
+</div>
 
-{{!-- I tried unless for selectbox options for preventing identical selection but it didn't work --}}
-
-<select {{on "change" this.oPlayerUpdate}}>
-  <option value="" selected="selected" hidden="hidden">Choose Player O</option>
-  {{#each this.players as |player|}}
-    <option value="{{player.id}}">{{player.name}}</option>
-  {{/each}}
-</select>
-
-
-<LinkTo @route="board.play" @query={{hash xPlayerID=this.xPlayerID oPlayerID=this.oPlayerID}}>Proceed to Tic Tac Toe</LinkTo>
+{{#if this.showInfo}}
+  <PaperToast @duration={{300}} @position={{concat 'bottom' " " 'right'}} @capsule={{true}} @swipeToClose={{true}} {{on "close" this.closeInfo}} as |toast|>
+    <toast.text><h5>Players must be different</h5></toast.text>
+    <PaperButton @accent={{true}} {{on "click" this.closeInfo}}>OK</PaperButton>
+  </PaperToast>
+{{/if}}

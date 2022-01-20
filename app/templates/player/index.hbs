@@ -1,19 +1,18 @@
 {{!-- template-lint-disable no-bare-strings --}}
 <div class="flexboxContainer">
   <div class="flexboxItem-left">
-    <PaperButton @onClick={{action "homePage"}} @class="indexButton">
+    <PaperButton {{on "click" this.homePage}} @class="indexButton">
       {{paper-icon "keyboard_return"}} Home Page
     </PaperButton>
   </div>
   <div class="flexboxItem-center m-auto">
     <h3>Players List</h3>
-    {{!-- template-lint-disable no-implicit-this --}}
-    {{#each players as |player|}}
+    {{#each this.players as |player|}}
       <p>{{player.name}}</p>
     {{/each}}
   </div>
   <div class="flexboxItem-right">
-    <PaperButton @onClick={{action "newPlayerPage"}}>
+    <PaperButton {{on "click" this.newPlayerPage}}>
       {{paper-icon "add"}} New Player
     </PaperButton>
   </div>

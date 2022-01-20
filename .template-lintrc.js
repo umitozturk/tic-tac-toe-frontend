@@ -47,6 +47,7 @@ module.exports = {
 
     // MISC
     'no-bare-strings': false,
+    'no-invalid-interactive': false,
     'no-inline-styles': false,
     'no-positional-data-test-selectors': true,
   },

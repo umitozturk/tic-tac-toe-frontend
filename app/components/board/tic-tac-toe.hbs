@@ -1,20 +1,19 @@
-{{!-- template-lint-disable no-html-comments --}}
-<!-- players -->
+{{!-- players --}}
 <div class="flexboxContainer">
   <div class="flexboxItem-left"><h3>X - {{this.xPlayer.name}} </h3></div>
-  <div class="flexboxItem-center m-auto"><h4>{{this.resultElement}}</h4></div>
+  <div class="flexboxItem-center m-auto"></div>
   <div class="flexboxItem-right"><h3>O - {{this.oPlayer.name}} </h3></div>
 </div>
-<!-- board and form -->
+
+{{!-- tic-tac-toe --}}
 <div class="flexboxContainer">
   <div class="flexboxItem-left"></div>
   <div class="flexboxItem m-auto">
-
     <section class="board">
       {{#each this.boardData as |row rowIndex|}}
         <div class="row{{rowIndex}}">
           {{#each row as |cell colIndex|}}
-            <div class="cell c{{rowIndex}}{{colIndex}}" {{action this.cellClick rowIndex colIndex}}>
+            <div class="cell c{{rowIndex}}{{colIndex}}" {{on "click" (fn this.cellClick rowIndex colIndex)}}>
               {{!-- Update the screen with markers --}}
               {{#if (eq cell 1)}}
                 X
@@ -26,16 +25,24 @@
         </div>
       {{/each}}
     </section>
-
   </div>
   <div class="flexboxItem-right"></div>
 </div>
-<!-- buttons -->
+
+{{!-- buttons --}}
 <div class="flexboxContainer">
-  <div class="flexboxItem-left m-auto">
-    <PaperButton @onClick={{action "boardSelectionPage"}}>Change Players</PaperButton>
+  <div class="flexboxItem-left">
+    <PaperButton {{on "click" this.boardSelectionPage}}>Change Players</PaperButton>
   </div>
-  <div class="flexboxItem-right m-auto">
-    <PaperButton @onClick={{action "resetGame"}}>New Game</PaperButton>
+  <div class="flexboxItem-center m-auto"><h5>{{this.lastWinner}}</h5></div>
+  <div class="flexboxItem-right">
+    <PaperButton {{on "click" this.resetGame}}>New Game</PaperButton>
   </div>
 </div>
+
+{{#if this.showEndInfo}}
+  <PaperToast @duration={{300}} @position={{concat 'bottom' " " 'right'}} @capsule={{true}} @swipeToClose={{true}} {{on "close" this.closeEndInfo}} as |toast|>
+    <toast.text><h5>Game has ended! {{this.resultElement}}</h5></toast.text>
+    <PaperButton @accent={{true}} {{on "click" this.closeEndInfo}}>OK</PaperButton>
+  </PaperToast>
+{{/if}}
