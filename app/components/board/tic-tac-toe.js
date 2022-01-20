@@ -14,6 +14,9 @@ export default class BoardTicTacToeComponent extends Component {
   @arg
   oPlayer;
 
+  @tracked showToast = false;
+  @tracked showEndInfo = false;
+
   // Create array to hold board data
   @tracked boardData = [
     [0, 0, 0],
@@ -24,12 +27,11 @@ export default class BoardTicTacToeComponent extends Component {
   @tracked player = 1;
   @tracked gameOver = false;
   @tracked result = '';
-  @tracked showToast = false;
-  @tracked showEndInfo = false;
-
-  // Pull in cells from DOM
-  @tracked cellElements = window.document.querySelectorAll(".cell");
   @tracked resultElement = '';
+  @tracked lastWinner = '';
+
+  // Pull in cells
+  @tracked cellElements = window.document.querySelectorAll(".cell");
 
   @action
   cellClick(rowIndex, colIndex) {
@@ -71,11 +73,11 @@ export default class BoardTicTacToeComponent extends Component {
       let rowSum = this.boardData[i][0] + this.boardData[i][1] + this.boardData[i][2];
       let colSum = this.boardData[0][i] + this.boardData[1][i] + this.boardData[2][i];
       if(rowSum == 3 || colSum == 3) {
-        // Player 1 wins
+        // Player X wins
         this.endGame(1);
         return
       } else if(rowSum == -3 || colSum == -3) {
-        // Player 2 wins
+        // Player O wins
         this.endGame(2);
         return
       }
@@ -85,11 +87,11 @@ export default class BoardTicTacToeComponent extends Component {
     let diagonalSum1 = this.boardData[0][0] + this.boardData[1][1] + this.boardData[2][2];
     let diagonalSum2 = this.boardData[0][2] + this.boardData[1][1] + this.boardData[2][0];
     if(diagonalSum1 == 3 || diagonalSum2 == 3) {
-      // Player 1 wins
+      // Player X wins
       this.endGame(1);
       return
     } else if(diagonalSum1 == -3 || diagonalSum2 == -3) {
-      // Player 2 wins
+      // Player O wins
       this.endGame(2);
       return
     }
@@ -110,12 +112,15 @@ export default class BoardTicTacToeComponent extends Component {
     this.showEndInfo = true;
     // Check if game ended in a tie
     if(winner == 0) {
-      this.resultElement = "It's a tie!"
+      this.resultElement = "It's a tie!";
+      this.lastWinner = 'No one won in the last game.';
     } else {
       if(winner == 1) {
-        this.resultElement = `Player ${this.xPlayer.name} wins!`
+        this.resultElement = `Player ${this.xPlayer.name} wins!`;
+        this.lastWinner = `${this.xPlayer.name} won in the last game.`
       } else {
-        this.resultElement = `Player ${this.oPlayer.name} wins!`
+        this.resultElement = `Player ${this.oPlayer.name} wins!`;
+        this.lastWinner = `${this.oPlayer.name} won in the last game.`
       }
     }
   }
