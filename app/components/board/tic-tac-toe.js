@@ -1,10 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { arg } from 'ember-arg-types';
+import { arg, forbidExtraArgs } from 'ember-arg-types';
 import { action } from '@ember/object';
 import { boardPlace } from 'tic-tac-toe-frontend/utils/board-place';
 import { inject as service } from '@ember/service';
 
+@forbidExtraArgs
 export default class BoardTicTacToeComponent extends Component {
   @service router;
 
