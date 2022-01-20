@@ -6,6 +6,6 @@ export function boardPlace(position, cells) {
       result = index;
     }
   });
-  console.log('helper : ' + result);
+
   return result;
 }
