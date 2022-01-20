@@ -12,7 +12,7 @@ Router.map(function() {
     this.route('new');
   });
   this.route('rank');
-  this.route('board', function() {
+  this.route('game', function() {
     this.route('play');
   });
 });

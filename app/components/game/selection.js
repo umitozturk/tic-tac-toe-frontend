@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class BoardSelectionComponent extends Component {
+export default class GameSelectionComponent extends Component {
   @service store;
 
   @tracked xPlayerID = '';

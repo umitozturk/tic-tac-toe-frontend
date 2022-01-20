@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
-export default class BoardPlayRoute extends Route {
+export default class GamePlayRoute extends Route {
   @service store;
 
   async model(params) {

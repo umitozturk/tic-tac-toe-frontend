@@ -148,7 +148,7 @@ export default class BoardTicTacToeComponent extends Component {
 
   @action
   boardSelectionPage() {
-    this.router.transitionTo('/board');
+    this.router.transitionTo('/game');
   }
 
   @action
