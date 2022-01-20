@@ -50,16 +50,8 @@ export default class BoardTicTacToeComponent extends Component {
     // Check if the current cell is empty
     if(this.boardData[row][col] == 0 && this.gameOver == false) {
       this.boardData[row][col] = this.player;
-      // eslint-disable-next-line no-self-assign
-      this.boardData = this.boardData.map((rowMap, rowI)=> {
-        return rowMap.map((cell, colI)=>{
-            if(rowI === row && colI === col){
-                return this.player;
-            } else {
-                return cell;
-            }
-        })
-      })
+      // this setter needed for re-render board template
+      this._setBoardWhenChanged(row, col);
       // change player
       this.player *= -1;
       // Check if anyone has won
@@ -154,5 +146,17 @@ export default class BoardTicTacToeComponent extends Component {
   @action
   closeEndInfo() {
     this.showEndInfo = false;
+  }
+
+  _setBoardWhenChanged(row, col) {
+    this.boardData = this.boardData.map((rowMap, rowI)=> {
+      return rowMap.map((cell, colI)=>{
+        if(rowI === row && colI === col){
+            return this.player;
+        } else {
+            return cell;
+        }
+      })
+    })
   }
 }
