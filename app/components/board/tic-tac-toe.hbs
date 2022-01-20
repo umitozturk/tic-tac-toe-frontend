@@ -1,7 +1,7 @@
 {{!-- players --}}
 <div class="flexboxContainer">
   <div class="flexboxItem-left"><h3>X - {{this.xPlayer.name}} </h3></div>
-  <div class="flexboxItem-center m-auto"><h4>{{this.lastWinner}}</h4></div>
+  <div class="flexboxItem-center m-auto"></div>
   <div class="flexboxItem-right"><h3>O - {{this.oPlayer.name}} </h3></div>
 </div>
 
@@ -31,10 +31,11 @@
 
 {{!-- buttons --}}
 <div class="flexboxContainer">
-  <div class="flexboxItem-left m-auto">
+  <div class="flexboxItem-left">
     <PaperButton {{on "click" this.boardSelectionPage}}>Change Players</PaperButton>
   </div>
-  <div class="flexboxItem-right m-auto">
+  <div class="flexboxItem-center m-auto"><h5>{{this.lastWinner}}</h5></div>
+  <div class="flexboxItem-right">
     <PaperButton {{on "click" this.resetGame}}>New Game</PaperButton>
   </div>
 </div>
