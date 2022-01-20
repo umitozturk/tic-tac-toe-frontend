@@ -25,7 +25,7 @@
 </div>
 <div class="flexboxContainer">
   <div class="flexboxItem-center m-auto">
-      <LinkTo @route="board.play" @query={{hash xPlayerID=this.xPlayerID oPlayerID=this.oPlayerID}} style="color:rgb(23, 23, 23)">
+      <LinkTo @route="game.play" @query={{hash xPlayerID=this.xPlayerID oPlayerID=this.oPlayerID}} style="color:rgb(23, 23, 23)">
         <PaperButton @disabled={{this.buttonDisabled}} @accent={{false}}>
           {{paper-icon "sports_esports"}} Start Tic Tac Toe {{paper-icon "sports_esports"}}
         </PaperButton>

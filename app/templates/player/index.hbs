@@ -6,10 +6,7 @@
     </PaperButton>
   </div>
   <div class="flexboxItem-center m-auto">
-    <h3>Players List</h3>
-    {{#each this.players as |player|}}
-      <p>{{player.name}}</p>
-    {{/each}}
+    <Player::PlayerList @players={{this.players}}/>
   </div>
   <div class="flexboxItem-right">
     <PaperButton {{on "click" this.newPlayerPage}}>

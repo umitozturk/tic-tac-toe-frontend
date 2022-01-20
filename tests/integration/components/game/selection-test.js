@@ -3,22 +3,22 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | board/tic-tac-toe', function(hooks) {
+module('Integration | Component | game/selection', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Board::TicTacToe />`);
+    await render(hbs`<Game::Selection />`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      <Board::TicTacToe>
+      <Game::Selection>
         template block text
-      </Board::TicTacToe>
+      </Game::Selection>
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
