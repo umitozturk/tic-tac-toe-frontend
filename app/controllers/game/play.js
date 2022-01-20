@@ -2,11 +2,15 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 
 export default class GamePlayController extends Controller {
-  queryParams = ['xPlayerID', 'oPlayerID'];
+  queryParams = {
+    xPlayerID: {
+      refreshModel: true
+    }
+  }
 
   @tracked xPlayer = '';
   @tracked oPlayer = '';
 
-  xPlayerID = '';
-  oPlayerID = '';
+  @tracked xPlayerID = '';
+  @tracked oPlayerID = '';
 }
